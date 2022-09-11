@@ -1,5 +1,5 @@
 
-라즈베리 클러스터 만들기
+# 라즈베리 클러스터 만들기
 
 1. Rasberry Pi Imager 로 기본적인 OS (64Bit, Lite) 설치
 2. (공유기의 DHCP 관리에서) 노드별 고정 Private IP 할당 
