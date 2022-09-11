@@ -1,3 +1,17 @@
+
+라즈베리 클러스터 만들기
+
+1. Rasberry Pi Imager 로 기본적인 OS (64Bit, Lite) 설치
+2. (공유기의 DHCP 관리에서) 노드별 고정 Private IP 할당 
+3. 환경에 맞게 `ansible.cfg` 수정
+4. `bootstrap.yaml` 을 실행하여 초기 업데이트 및 환경 준비 
+5. `site.yml` 을 실행하여 K3S 설치 
+6. `extra.yaml` 을 실행하여 helm 및 기타 툴 설치 
+
+아래는 원본 설명 
+
+----
+
 # Build a Kubernetes cluster using k3s via Ansible
 
 Author: <https://github.com/itwars>

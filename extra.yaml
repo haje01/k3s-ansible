@@ -1,0 +1,37 @@
+---
+- name: Make Aliases 
+  hosts: all 
+  tasks:
+    - name: Make aliases
+      ansible.builtin.shell:
+        cmd: |
+          cat <<EOT > ~/.bash_aliases
+          alias ll="ls -alh"
+          alias k="sudo kubectl"
+          # export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+          EOT
+      changed_when: false
+
+
+- name: Install Helm for Master
+  hosts: master
+  tasks:
+    - name: Install Helm
+      tags: k8s
+      become: yes 
+      ansible.builtin.shell:
+        cmd: |
+          curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+          chmod 700 get_helm.sh
+          ./get_helm.sh
+        creates: get_helm.sh
+          
+    - name: Install Helm Repositories
+      tags: k8s
+      ansible.builtin.shell:
+        cmd: |
+          helm repo add stable https://charts.helm.sh/stable
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          touch ~/.helm_repo_done
+        creates: ~/.helm_repo_done
+
