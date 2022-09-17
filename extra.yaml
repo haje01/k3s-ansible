@@ -31,7 +31,7 @@
       ansible.builtin.shell:
         cmd: |
           helm repo add stable https://charts.helm.sh/stable
-          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add longhorn https://charts.longhorn.io
           touch ~/.helm_repo_done
         creates: ~/.helm_repo_done
 

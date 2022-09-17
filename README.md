@@ -3,10 +3,13 @@
 
 1. Rasberry Pi Imager 로 기본적인 OS (64Bit, Lite) 설치
 2. (공유기의 DHCP 관리에서) 노드별 고정 Private IP 할당 
-3. 환경에 맞게 `ansible.cfg` 수정
-4. `bootstrap.yaml` 을 실행하여 초기 업데이트 및 환경 준비 
-5. `site.yml` 을 실행하여 K3S 설치 
-6. `extra.yaml` 을 실행하여 helm 및 기타 툴 설치 
+3. 원본 설명을 참고하여 `inventory` 디렉토리 복사 후 설정
+  - `hosts.ini` 에 자신의 노드들 IP 기입
+  - `all.yml` 의 `user`를 pi 로
+4. 환경에 맞게 `ansible.cfg` 수정
+5. `bootstrap.yaml` 을 실행하여 초기 업데이트 및 환경 준비 
+6. `site.yml` 을 실행하여 K3S 설치 
+7. `extra.yaml` 을 실행하여 Helm 및 기타 툴 설치 
 
 아래는 원본 설명 
 
